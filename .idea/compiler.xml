@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="boot-web-01" />
+        <module name="boot-actuator-admin" />
+        <module name="lhf-boot-starter" />
+        <module name="helloworld-boot" />
+        <module name="boot-web-thymeleaf" />
+        <module name="lhf-boot-starter-autoconfigura" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="boot-actuator-admin" target="1.8" />
+      <module name="boot-web-01" target="1.8" />
+      <module name="boot-web-thymeleaf" target="1.8" />
+      <module name="helloworld-boot" target="1.8" />
+      <module name="lhf-boot-starter" target="1.8" />
+      <module name="lhf-boot-starter-autoconfigura" target="1.8" />
+      <module name="lhf-boot-stater" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="boot-actuator-admin" options="-parameters" />
+      <module name="boot-web-01" options="-parameters" />
+      <module name="boot-web-thymeleaf" options="-parameters" />
+      <module name="helloworld-boot" options="-parameters" />
+      <module name="lhf-boot-starter-autoconfigura" options="-parameters" />
+    </option>
+  </component>
+</project>

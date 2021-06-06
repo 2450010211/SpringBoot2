@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <div>
+        <h3>表单提交,表单不支持put和delete请求</h3>
+        <form action="/user" method="get">
+            <input type="submit" value="GET请求">
+        </form>
+
+        <form action="/user" method="post">
+            <input type="submit" value="POST请求">
+        </form>
+
+        <form action="/user" method="post">
+            <input type="hidden" name="_method" value="put">
+            <input type="submit" value="PUT请求">
+        </form>
+
+        <form action="/user" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="DELETE请求">
+        </form>
+    </div>
+    <h1>矩阵变量测试</h1>
+    <div>
+        <a href="/matrix/path;low=34;brand=byd,yd">@MatrixVariable(矩阵变量)</a><br/>
+        <a href="/matrix/path;low=34;brand=byd;brand=byd,yd">@MatrixVariable(矩阵变量)</a><br/>
+        <a href="/matrix/boss;age=26/2;age=10">@MatrixVariable(矩阵变量)</a>
+    </div>
+    <h1>封装Bean</h1>
+    <div>
+        <form action="/saveuser" method="post">
+            姓名：<input type="text" name="userName" value="张三"> <br/>
+            年龄：<input type="text" name="age" value="20"> <br/>
+            生日：<input type="text" name="birth" value="2001-12-12"> <br/>
+            <!--<input type="text" name="pet.name" value="阿猫"> <br/>-->
+            <!--<input type="text" name="pet.age" value="2"> <br/>-->
+            <!-- 这种参数spring不能自动封装，需要自定义转换器 -->
+            宠物：<input type="text" name="pet" value="阿猫,2"> <br/>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

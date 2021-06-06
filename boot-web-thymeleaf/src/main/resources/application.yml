@@ -1,0 +1,71 @@
+spring:
+  redis:
+    host: 192.168.56.101
+    password: redis
+    port: 6379
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
+    druid:
+      filters: stat,wall
+      stat-view-servlet:
+        enabled: true #开启druid监控
+        login-username: admin
+        login-password: zxc123
+      web-stat-filter:
+        enabled: true #开启web监控
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      aop-patterns: com.lhf.*
+      filter:
+        stat:
+          slow-sql-millis: 1000
+          log-slow-sql: true
+          enabled: true
+        wall:
+          enabled: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8090 #spring-boot-admin地址
+        instance:
+          prefer-ip: true #以ip地址注册
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+#management 是所有actuator的配置
+management:
+  endpoints:
+    enabled-by-default: true #true:默认开启所有监控端点
+    web:
+      exposure:
+        include: '*'
+#        include: health,metrics,loggers,info,myserver #以web方式暴露所有端点 '*'开启所有监控端点可见
+  endpoint:
+    health:
+      show-details: always  #对某个端点详细的配置
+      enabled: true #开启health监控端点
+    metrics:
+      enabled: true #开启metrics监控端点
+    info:
+      enabled: true #开启info监控信息
+
+#  http://localhost:8080/actuator/info  配置服务info信息
+info:
+  appName: springBoot2
+  appVersion: 1.0.0
+  appAuthor: lhf
+  mavenProjectName: @project.artifactId@  #读取pom中的信息
+  mavenProjectVersion: @project.version@  #读取pom中的信息
+
+
+lhf:
+  hello:
+    prefix: start
+    suffix: end
